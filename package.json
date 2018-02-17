@@ -1,6 +1,6 @@
 {
   "name": "homebridge-tasmota-motor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Control Sonoff T1 for Blinds through homebridge",
   "main": "index.js",
   "scripts": {

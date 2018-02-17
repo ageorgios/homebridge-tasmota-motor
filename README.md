@@ -8,7 +8,7 @@ This is a plugin for [homebridge](https://github.com/nfarina/homebridge)
  	{
  	"accessory": "TasmotaMotor",
  	"name": "Sonoff-2CH",
- 	"sonoffhostname": "sonoff-2ch",
+ 	"hostname": "sonoff-2ch",
  	"secondsUp": 12,
  	"secondsDown": 12,
  	},
