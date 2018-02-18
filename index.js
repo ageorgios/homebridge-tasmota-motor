@@ -22,8 +22,8 @@ function TasmotaMotor(log, config){
     
     this.infoService = new Service.AccessoryInformation();
     this.infoService
-        .setCharacteristic(Characteristic.Manufacturer, "Rade Bebek")
-        .setCharacteristic(Characteristic.Model, "RaspberryPi SonOff Blinds")
+        .setCharacteristic(Characteristic.Manufacturer, "Sonoff")
+        .setCharacteristic(Characteristic.Model, "Sonoff T1 Motor")
         .setCharacteristic(Characteristic.SerialNumber, "Version 1.0.0");
     
     this.service = new Service.WindowCovering(this.name);
@@ -131,7 +131,7 @@ TasmotaMotor.prototype.httpRequest = function(move, duration, callback){
       if (this.durationDown < 12) pulsetime = this.durationDown * 10; else pulsetime = this.durationDown + 100
   }
   var m = move ? 2 : 1
-  url = 'http://' + this.hostname + '/cm?cmnd=backlog%20SetOption14%201;pulsetime'+m+'%20'+duration.toFixed(0)+';power'+m+'%20on;delay%20'+delay.toFixed(0)+';pulsetime'+m+'%20'+pulsetime.toFixed(0)
+  url = 'http://' + this.hostname + '/cm?cmnd=backlog%20pulsetime'+m+'%20'+duration.toFixed(0)+';power'+m+'%20on;delay%20'+delay.toFixed(0)+';pulsetime'+m+'%20'+pulsetime.toFixed(0)
   this.log("Sonoff link for moving blinds:  " + url);                    
   request.get({ url: url,  }, function(err, response, body) {
     if (!err && response && response.statusCode == 200) {
