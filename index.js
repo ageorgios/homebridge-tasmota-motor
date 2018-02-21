@@ -62,6 +62,14 @@ TasmotaMotor.prototype.setTargetPosition = function(pos, callback) {
     callback();
     return false;
   }
+  
+  if (pos == 0 && this.currentPosition == 0) {
+    this.currentPosition = 100
+  }
+  
+  if (pos == 100 && this.currentPosition == 100) {
+    this.currentPosition = 0
+  }
 
   if (this.currentPosition == pos) {
     this.log("Current position already matches target position. There is nothing to do.");
